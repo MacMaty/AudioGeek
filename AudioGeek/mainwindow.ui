@@ -53,6 +53,16 @@
      <string/>
     </property>
    </widget>
+   <widget class="QListWidget" name="listWidget">
+    <property name="geometry">
+     <rect>
+      <x>65</x>
+      <y>30</y>
+      <width>611</width>
+      <height>192</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -63,6 +73,12 @@
      <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuBiblioth_que">
+    <property name="title">
+     <string>Bibliothèque</string>
+    </property>
+   </widget>
+   <addaction name="menuBiblioth_que"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">

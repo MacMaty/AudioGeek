@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QListWidgetItem>
 #include "player.h"
 
 namespace Ui {
@@ -20,6 +21,10 @@ private slots:
     void on_play_btn_clicked();
 
     void on_pause_btn_clicked();
+
+    void recup_Fichier();
+
+    void on_listWidget_itemDoubleClicked(QListWidgetItem *item);
 
 private:
     Ui::MainWindow *ui;

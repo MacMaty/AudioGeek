@@ -15,7 +15,9 @@
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
@@ -31,7 +33,9 @@ public:
     QPushButton *pause_btn;
     QPushButton *play_btn;
     QLabel *lecturEncours_lbl;
+    QListWidget *listWidget;
     QMenuBar *menuBar;
+    QMenu *menuBiblioth_que;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
@@ -51,10 +55,15 @@ public:
         lecturEncours_lbl = new QLabel(centralWidget);
         lecturEncours_lbl->setObjectName(QStringLiteral("lecturEncours_lbl"));
         lecturEncours_lbl->setGeometry(QRect(130, 300, 46, 13));
+        listWidget = new QListWidget(centralWidget);
+        listWidget->setObjectName(QStringLiteral("listWidget"));
+        listWidget->setGeometry(QRect(65, 30, 611, 192));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
         menuBar->setGeometry(QRect(0, 0, 748, 21));
+        menuBiblioth_que = new QMenu(menuBar);
+        menuBiblioth_que->setObjectName(QStringLiteral("menuBiblioth_que"));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -62,6 +71,8 @@ public:
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QStringLiteral("statusBar"));
         MainWindow->setStatusBar(statusBar);
+
+        menuBar->addAction(menuBiblioth_que->menuAction());
 
         retranslateUi(MainWindow);
 
@@ -74,6 +85,7 @@ public:
         pause_btn->setText(QApplication::translate("MainWindow", "Pause", 0));
         play_btn->setText(QApplication::translate("MainWindow", "Lecture", 0));
         lecturEncours_lbl->setText(QString());
+        menuBiblioth_que->setTitle(QApplication::translate("MainWindow", "Biblioth\303\250que", 0));
     } // retranslateUi
 
 };
