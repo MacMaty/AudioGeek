@@ -34,6 +34,7 @@ public:
     QPushButton *play_btn;
     QLabel *lecturEncours_lbl;
     QListWidget *listWidget;
+    QPushButton *mute_btn;
     QMenuBar *menuBar;
     QMenu *menuBiblioth_que;
     QToolBar *mainToolBar;
@@ -58,6 +59,9 @@ public:
         listWidget = new QListWidget(centralWidget);
         listWidget->setObjectName(QStringLiteral("listWidget"));
         listWidget->setGeometry(QRect(65, 30, 611, 192));
+        mute_btn = new QPushButton(centralWidget);
+        mute_btn->setObjectName(QStringLiteral("mute_btn"));
+        mute_btn->setGeometry(QRect(440, 360, 75, 23));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -85,6 +89,7 @@ public:
         pause_btn->setText(QApplication::translate("MainWindow", "Pause", 0));
         play_btn->setText(QApplication::translate("MainWindow", "Lecture", 0));
         lecturEncours_lbl->setText(QString());
+        mute_btn->setText(QApplication::translate("MainWindow", "Mute", 0));
         menuBiblioth_que->setTitle(QApplication::translate("MainWindow", "Biblioth\303\250que", 0));
     } // retranslateUi
 

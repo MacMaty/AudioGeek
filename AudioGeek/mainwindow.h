@@ -26,6 +26,8 @@ private slots:
 
     void on_listWidget_itemDoubleClicked(QListWidgetItem *item);
 
+    void on_mute_btn_clicked();
+
 private:
     Ui::MainWindow *ui;
     Player p;

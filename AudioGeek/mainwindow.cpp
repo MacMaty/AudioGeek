@@ -82,7 +82,7 @@ void MainWindow::on_listWidget_itemDoubleClicked(QListWidgetItem *item)
     if (pauseActive == -1 || bySelect == 1)
        {
             p.play(item->text().toStdString());
-            int duree = p.getLength();
+            int duree = (p.getLength()/60)/60;
             QString musiquelu = QString::fromStdString(p.getTitle() +" - " + p.getArtist()+ " "+=duree );
             ui->lecturEncours_lbl->setText(musiquelu);
 
@@ -95,4 +95,9 @@ void MainWindow::on_listWidget_itemDoubleClicked(QListWidgetItem *item)
             pauseActive = p.resume();
         }
 
+}
+
+void MainWindow::on_mute_btn_clicked()
+{
+    p.mute();
 }

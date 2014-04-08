@@ -75,3 +75,22 @@ unsigned int Player::getLength(){
     FMOD_Sound_GetLength(sound, &i, FMOD_TIMEUNIT_MS  );
     return i;
 }
+
+void Player::mute()
+{
+                           FMOD_CHANNELGROUP *canalgroup;
+                           FMOD_BOOL mute;
+                           FMOD_System_GetMasterChannelGroup(sys, &canalgroup);
+                           resultat = FMOD_ChannelGroup_GetMute(canalgroup, &mute);
+
+                           if(mute)
+                           {
+                               resultat = FMOD_ChannelGroup_SetMute(canalgroup, 0);
+                               mute = 0;
+                           }
+                           else
+                           {
+                               resultat = FMOD_ChannelGroup_SetMute(canalgroup, 1);
+                               mute = 1;
+                           }
+}
