@@ -54,7 +54,7 @@ public:
         play_btn->setGeometry(QRect(440, 300, 75, 23));
         lecturEncours_lbl = new QLabel(centralWidget);
         lecturEncours_lbl->setObjectName(QStringLiteral("lecturEncours_lbl"));
-        lecturEncours_lbl->setGeometry(QRect(130, 300, 46, 13));
+        lecturEncours_lbl->setGeometry(QRect(60, 300, 271, 20));
         listWidget = new QListWidget(centralWidget);
         listWidget->setObjectName(QStringLiteral("listWidget"));
         listWidget->setGeometry(QRect(65, 30, 611, 192));

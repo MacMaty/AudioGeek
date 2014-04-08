@@ -10,6 +10,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     recup_Fichier();
     pauseActive = -1;
+    bySelect = 0;
 }
 
 MainWindow::~MainWindow()
@@ -44,22 +45,24 @@ void MainWindow::on_pause_btn_clicked()
 void MainWindow::recup_Fichier()
 {
     // On sélectionne le répertoire à partir duquel on va rechercher les fichiers AVI et MP3
-    QString selectDir = QFileDialog::getExistingDirectory
-    (
-        this,
-        tr("Ouvrir un répertoire"),
-        "",
-        QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks
-    );
+
+    //QString selectDir = QFileDialog::getExistingDirectory
+    //:(
+      //  this,
+      // tr("Ouvrir un répertoire"),
+      //  "",
+      //  QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks
+    //);
 
     // On remplit une QStringList avec chacun des filtres désirés ici "*.mp3" et "*.avi".
     QStringList listFilter;
-    listFilter << "*.m4a";
+    listFilter << "*.aac";
     listFilter << "*.mp3";
 
     // On déclare un QDirIterator dans lequel on indique que l'on souhaite parcourir un répertoire et ses sous-répertoires.
     // De plus, on spécifie le filtre qui nous permettra de récupérer uniquement les fichiers du type souhaité.
-    QDirIterator dirIterator(selectDir, listFilter ,QDir::Files | QDir::NoSymLinks, QDirIterator::Subdirectories);
+    QDirIterator dirIterator("C:/Users/Mathieu/Music", listFilter ,QDir::Files | QDir::NoSymLinks, QDirIterator::Subdirectories);
+   // QDirIterator dirIterator(selectDir, listFilter ,QDir::Files | QDir::NoSymLinks, QDirIterator::Subdirectories);
 
     // Variable qui contiendra tous les fichiers correspondant à notre recherche
     QStringList fileList;
@@ -76,7 +79,7 @@ void MainWindow::recup_Fichier()
 
 void MainWindow::on_listWidget_itemDoubleClicked(QListWidgetItem *item)
 {
-    if (pauseActive == -1)
+    if (pauseActive == -1 || bySelect == 1)
        {
             p.play(item->text().toStdString());
             int duree = p.getLength();
@@ -84,6 +87,7 @@ void MainWindow::on_listWidget_itemDoubleClicked(QListWidgetItem *item)
             ui->lecturEncours_lbl->setText(musiquelu);
 
             pauseActive = 1;
+            bySelect = 1 ;
         }
 
         if(pauseActive == 1 )

@@ -30,6 +30,7 @@ private:
     Ui::MainWindow *ui;
     Player p;
     int pauseActive;
+    int bySelect;
 };
 
 #endif // MAINWINDOW_H
