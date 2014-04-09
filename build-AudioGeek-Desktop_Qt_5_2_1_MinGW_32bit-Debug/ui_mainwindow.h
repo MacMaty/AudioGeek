@@ -20,6 +20,7 @@
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSlider>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
@@ -35,6 +36,8 @@ public:
     QLabel *lecturEncours_lbl;
     QListWidget *listWidget;
     QPushButton *mute_btn;
+    QSlider *verticalSlider;
+    QLabel *volume_lbl;
     QMenuBar *menuBar;
     QMenu *menuBiblioth_que;
     QToolBar *mainToolBar;
@@ -62,6 +65,16 @@ public:
         mute_btn = new QPushButton(centralWidget);
         mute_btn->setObjectName(QStringLiteral("mute_btn"));
         mute_btn->setGeometry(QRect(440, 360, 75, 23));
+        verticalSlider = new QSlider(centralWidget);
+        verticalSlider->setObjectName(QStringLiteral("verticalSlider"));
+        verticalSlider->setGeometry(QRect(690, 240, 22, 160));
+        verticalSlider->setMaximum(100);
+        verticalSlider->setSingleStep(1);
+        verticalSlider->setSliderPosition(50);
+        verticalSlider->setOrientation(Qt::Vertical);
+        volume_lbl = new QLabel(centralWidget);
+        volume_lbl->setObjectName(QStringLiteral("volume_lbl"));
+        volume_lbl->setGeometry(QRect(640, 380, 46, 13));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -90,6 +103,7 @@ public:
         play_btn->setText(QApplication::translate("MainWindow", "Lecture", 0));
         lecturEncours_lbl->setText(QString());
         mute_btn->setText(QApplication::translate("MainWindow", "Mute", 0));
+        volume_lbl->setText(QApplication::translate("MainWindow", "TextLabel", 0));
         menuBiblioth_que->setTitle(QApplication::translate("MainWindow", "Biblioth\303\250que", 0));
     } // retranslateUi
 

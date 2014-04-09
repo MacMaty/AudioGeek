@@ -94,3 +94,10 @@ void Player::mute()
                                mute = 1;
                            }
 }
+
+
+void Player::volume(float vol)
+{
+
+ FMOD_Channel_SetVolume(channel,vol);
+}

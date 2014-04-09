@@ -74,6 +74,7 @@ void MainWindow::recup_Fichier()
         // ...on va au prochain fichier correspondant à notre filtre
         fileList << dirIterator.next();
         ui->listWidget->addItem(dirIterator.next());
+
     }
 }
 
@@ -83,8 +84,9 @@ void MainWindow::on_listWidget_itemDoubleClicked(QListWidgetItem *item)
        {
             p.play(item->text().toStdString());
             int duree = (p.getLength()/60)/60;
-            QString musiquelu = QString::fromStdString(p.getTitle() +" - " + p.getArtist()+ " "+=duree );
+            QString musiquelu = QString::fromStdString(p.getTitle() +" - " + p.getArtist() )+QString::number(duree);
             ui->lecturEncours_lbl->setText(musiquelu);
+
 
             pauseActive = 1;
             bySelect = 1 ;
@@ -100,4 +102,20 @@ void MainWindow::on_listWidget_itemDoubleClicked(QListWidgetItem *item)
 void MainWindow::on_mute_btn_clicked()
 {
     p.mute();
+}
+
+void MainWindow::on_verticalSlider_sliderMoved(int position)
+{
+    float vol = (float)position/100;
+    p.volume(vol);
+
+    ui->volume_lbl->setText(QString::number(vol));
+}
+
+void MainWindow::on_verticalSlider_valueChanged(int value)
+{
+    float vol = (float)value/100;
+    p.volume(vol);
+
+    ui->volume_lbl->setText(QString::number(vol));
 }

@@ -28,6 +28,10 @@ private slots:
 
     void on_mute_btn_clicked();
 
+    void on_verticalSlider_sliderMoved(int position);
+
+    void on_verticalSlider_valueChanged(int value);
+
 private:
     Ui::MainWindow *ui;
     Player p;

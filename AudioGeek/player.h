@@ -26,6 +26,7 @@ public:
            void reculer(unsigned int);
            void setVolume(float);
            void mute();
+           void volume(float);
 
            //void remove_effects();
            //void add_echo(unsigned int);
