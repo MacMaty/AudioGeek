@@ -38,6 +38,8 @@ public:
     QPushButton *mute_btn;
     QSlider *verticalSlider;
     QLabel *volume_lbl;
+    QSlider *horizontalSlider;
+    QLabel *lbl_horizontal;
     QMenuBar *menuBar;
     QMenu *menuBiblioth_que;
     QToolBar *mainToolBar;
@@ -52,7 +54,7 @@ public:
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         pause_btn = new QPushButton(centralWidget);
         pause_btn->setObjectName(QStringLiteral("pause_btn"));
-        pause_btn->setGeometry(QRect(550, 300, 75, 23));
+        pause_btn->setGeometry(QRect(440, 330, 75, 23));
         play_btn = new QPushButton(centralWidget);
         play_btn->setObjectName(QStringLiteral("play_btn"));
         play_btn->setGeometry(QRect(440, 300, 75, 23));
@@ -64,7 +66,7 @@ public:
         listWidget->setGeometry(QRect(65, 30, 611, 192));
         mute_btn = new QPushButton(centralWidget);
         mute_btn->setObjectName(QStringLiteral("mute_btn"));
-        mute_btn->setGeometry(QRect(440, 360, 75, 23));
+        mute_btn->setGeometry(QRect(570, 390, 75, 23));
         verticalSlider = new QSlider(centralWidget);
         verticalSlider->setObjectName(QStringLiteral("verticalSlider"));
         verticalSlider->setGeometry(QRect(690, 240, 22, 160));
@@ -74,7 +76,16 @@ public:
         verticalSlider->setOrientation(Qt::Vertical);
         volume_lbl = new QLabel(centralWidget);
         volume_lbl->setObjectName(QStringLiteral("volume_lbl"));
-        volume_lbl->setGeometry(QRect(640, 380, 46, 13));
+        volume_lbl->setGeometry(QRect(660, 390, 31, 16));
+        horizontalSlider = new QSlider(centralWidget);
+        horizontalSlider->setObjectName(QStringLiteral("horizontalSlider"));
+        horizontalSlider->setGeometry(QRect(100, 350, 160, 22));
+        horizontalSlider->setMaximum(10000);
+        horizontalSlider->setPageStep(1000);
+        horizontalSlider->setOrientation(Qt::Horizontal);
+        lbl_horizontal = new QLabel(centralWidget);
+        lbl_horizontal->setObjectName(QStringLiteral("lbl_horizontal"));
+        lbl_horizontal->setGeometry(QRect(110, 390, 46, 13));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -103,7 +114,8 @@ public:
         play_btn->setText(QApplication::translate("MainWindow", "Lecture", 0));
         lecturEncours_lbl->setText(QString());
         mute_btn->setText(QApplication::translate("MainWindow", "Mute", 0));
-        volume_lbl->setText(QApplication::translate("MainWindow", "TextLabel", 0));
+        volume_lbl->setText(QApplication::translate("MainWindow", "Volume", 0));
+        lbl_horizontal->setText(QApplication::translate("MainWindow", "TextLabel", 0));
         menuBiblioth_que->setTitle(QApplication::translate("MainWindow", "Biblioth\303\250que", 0));
     } // retranslateUi
 

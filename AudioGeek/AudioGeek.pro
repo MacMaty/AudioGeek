@@ -14,10 +14,18 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    player.cpp
+    player.cpp \
+    genre.cpp \
+    artiste.cpp \
+    titre.cpp \
+    album.cpp
 
 HEADERS  += mainwindow.h \
-    player.h
+    player.h \
+    genre.h \
+    artiste.h \
+    titre.h \
+    album.h
 
 FORMS    += mainwindow.ui
 

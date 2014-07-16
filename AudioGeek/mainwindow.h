@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QListWidgetItem>
 #include "player.h"
+#include "titre.h"
 
 namespace Ui {
 class MainWindow;
@@ -32,11 +33,14 @@ private slots:
 
     void on_verticalSlider_valueChanged(int value);
 
+    void on_horizontalSlider_valueChanged(int value);
+
 private:
     Ui::MainWindow *ui;
     Player p;
     int pauseActive;
     int bySelect;
+    list<Titre> lesTitres;
 };
 
 #endif // MAINWINDOW_H

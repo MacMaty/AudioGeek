@@ -12,8 +12,6 @@ Player::~Player()
     FMOD_Sound_Release(sound);
 }
 
-
-
 // pour lire un morceau
 int Player::play(const string &filename)
 {
@@ -33,8 +31,6 @@ int Player::play(const string &filename)
 
 }
 
-
-
 // mettre en pause un canal
 int Player::pause()
 {
@@ -48,7 +44,6 @@ int Player::resume()
     return 0;
 }
 
-
 //récupérer le nom de l'artiste du morceau courant
 string Player::getArtist(){
     FMOD_TAG         tag;
@@ -57,7 +52,6 @@ string Player::getArtist(){
 
     return s;
 }
-
 
 //récupérer le titre du morceau courant
 string Player::getTitle(){
@@ -68,12 +62,18 @@ string Player::getTitle(){
     return s;
 }
 
-
 //récupérer la durée du morceau courant
 unsigned int Player::getLength(){
     unsigned int i;
     FMOD_Sound_GetLength(sound, &i, FMOD_TIMEUNIT_MS  );
     return i;
+}
+unsigned int Player::getCurrentPos()
+{
+         unsigned int tps;
+
+        FMOD_Channel_GetPosition(channel, &tps, FMOD_TIMEUNIT_MS);
+        return tps;
 }
 
 void Player::mute()
@@ -95,9 +95,24 @@ void Player::mute()
                            }
 }
 
-
 void Player::volume(float vol)
 {
 
  FMOD_Channel_SetVolume(channel,vol);
+}
+
+void Player::avancer(unsigned i)
+{
+    unsigned int c=getCurrentPos();
+    unsigned int l=getLength();
+    if(c+i<l)
+      FMOD_Channel_SetPosition(channel, c+i,FMOD_TIMEUNIT_MS );
+}
+
+void Player::reculer(unsigned i)
+{
+    unsigned int c=getCurrentPos();
+     //if(c-i>0)
+       FMOD_Channel_SetPosition(channel, c-i,FMOD_TIMEUNIT_MS );
+
 }
