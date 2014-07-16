@@ -1,3 +1,9 @@
+/*!
+ * \file Titre.h
+ * \brief Lecteur de musique de base
+ * \author Mathieu BOYER
+ * \version 0.1
+ */
 #ifndef TITRE_H
 #define TITRE_H
 

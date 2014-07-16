@@ -1,3 +1,9 @@
+/*!
+ * \file Album.h
+ * \brief Lecteur de musique de base
+ * \author Mathieu BOYER
+ * \version 0.1
+ */
 #ifndef ALBUM_H
 #define ALBUM_H
 #include <iostream>

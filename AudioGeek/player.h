@@ -1,3 +1,9 @@
+/*!
+ * \file Player.h
+ * \brief Lecteur de musique de base
+ * \author Mathieu BOYER
+ * \version 0.1
+ */
 #ifndef PLAYER_H
 #define PLAYER_H
 
@@ -6,7 +12,11 @@
 #include <fstream>
 
 using namespace std;
-
+/*! \class CPlayer
+   * \brief classe representant le lecteur
+   *
+   *  La classe gere la lecture de morceaux
+   */
 class Player
 {
 public:

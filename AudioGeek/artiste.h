@@ -1,3 +1,9 @@
+/*!
+ * \file Artiste.h
+ * \brief Lecteur de musique de base
+ * \author Mathieu BOYER
+ * \version 0.1
+ */
 #ifndef ARTISTE_H
 #define ARTISTE_H
 #include "genre.h"

@@ -47,23 +47,23 @@ void MainWindow::recup_Fichier()
 {
     // On sélectionne le répertoire à partir duquel on va rechercher les fichiers AVI et MP3
 
-    //QString selectDir = QFileDialog::getExistingDirectory
-    //:(
-      //  this,
-      // tr("Ouvrir un répertoire"),
-      //  "",
-      //  QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks
-    //);
+    QString selectDir = QFileDialog::getExistingDirectory
+    (
+        this,
+       tr("Ouvrir un répertoire"),
+        "",
+        QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks
+    );
 
-    // On remplit une QStringList avec chacun des filtres désirés ici "*.mp3" et "*.avi".
+    // On remplit une QStringList avec chacun des filtres désirés ici "*.mp3" et "*.aac".
     QStringList listFilter;
     listFilter << "*.aac";
     listFilter << "*.mp3";
 
     // On déclare un QDirIterator dans lequel on indique que l'on souhaite parcourir un répertoire et ses sous-répertoires.
     // De plus, on spécifie le filtre qui nous permettra de récupérer uniquement les fichiers du type souhaité.
-    QDirIterator dirIterator("C:/Users/Mathieu/Music", listFilter ,QDir::Files | QDir::NoSymLinks, QDirIterator::Subdirectories);
-   // QDirIterator dirIterator(selectDir, listFilter ,QDir::Files | QDir::NoSymLinks, QDirIterator::Subdirectories);
+    //QDirIterator dirIterator("C:/Users/Mathieu/Music", listFilter ,QDir::Files | QDir::NoSymLinks, QDirIterator::Subdirectories);
+   QDirIterator dirIterator(selectDir, listFilter ,QDir::Files | QDir::NoSymLinks, QDirIterator::Subdirectories);
 
     // Variable qui contiendra tous les fichiers correspondant à notre recherche
     QStringList fileList;
@@ -132,6 +132,6 @@ void MainWindow::on_horizontalSlider_valueChanged(int value)
     p.avancer(value);
 
     p.reculer(-value);
-    ui->lbl_horizontal->setText(QString::number(ui->horizontalSlider->height()));
+    //ui->lbl_horizontal->setText(QString::number(ui->horizontalSlider->height()));
 
 }

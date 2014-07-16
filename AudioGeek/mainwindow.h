@@ -1,3 +1,9 @@
+/*!
+ * \file MainWindow.h
+ * \brief Lecteur de musique de base
+ * \author Mathieu BOYER
+ * \version 0.1
+ */
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 

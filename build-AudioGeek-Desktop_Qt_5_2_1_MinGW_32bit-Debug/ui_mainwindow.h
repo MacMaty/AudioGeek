@@ -39,7 +39,6 @@ public:
     QSlider *verticalSlider;
     QLabel *volume_lbl;
     QSlider *horizontalSlider;
-    QLabel *lbl_horizontal;
     QMenuBar *menuBar;
     QMenu *menuBiblioth_que;
     QToolBar *mainToolBar;
@@ -83,9 +82,6 @@ public:
         horizontalSlider->setMaximum(10000);
         horizontalSlider->setPageStep(1000);
         horizontalSlider->setOrientation(Qt::Horizontal);
-        lbl_horizontal = new QLabel(centralWidget);
-        lbl_horizontal->setObjectName(QStringLiteral("lbl_horizontal"));
-        lbl_horizontal->setGeometry(QRect(110, 390, 46, 13));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -115,7 +111,6 @@ public:
         lecturEncours_lbl->setText(QString());
         mute_btn->setText(QApplication::translate("MainWindow", "Mute", 0));
         volume_lbl->setText(QApplication::translate("MainWindow", "Volume", 0));
-        lbl_horizontal->setText(QApplication::translate("MainWindow", "TextLabel", 0));
         menuBiblioth_que->setTitle(QApplication::translate("MainWindow", "Biblioth\303\250que", 0));
     } // retranslateUi
 
