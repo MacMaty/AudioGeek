@@ -24,7 +24,7 @@ void MainWindow::on_play_btn_clicked()
 {
     if (pauseActive == -1)
        {
-            p.play("C:/Users/Mathieu/Music/Bitch, Don't Kill My Vibe.mp3");
+            //p.play("C:/Users/Mathieu/Music/Bitch, Don't Kill My Vibe.mp3");
             int duree = p.getLength();
             QString musiquelu = QString::fromStdString(p.getTitle() +" - " + p.getArtist()+ " "+=duree );
             ui->lecturEncours_lbl->setText(musiquelu);

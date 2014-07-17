@@ -105,7 +105,7 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "AudioGeek", 0));
         pause_btn->setText(QApplication::translate("MainWindow", "Pause", 0));
         play_btn->setText(QApplication::translate("MainWindow", "Lecture", 0));
         lecturEncours_lbl->setText(QString());
